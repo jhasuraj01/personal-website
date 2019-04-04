@@ -1,13 +1,25 @@
-:root, body, html {
-    font-size: 1rem;
+* {
     margin: 0;
     padding: 0;
 }
-:root {
-    --body-header-height: 7em;
+img {
+    width: 100%;
+    height: 100%;
 }
-
-
+h1 {
+    text-align: center;
+}
+:focus {
+    outline: none;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+a {
+    color: currentColor;
+    text-decoration: none;
+}
 /*  ---------------------------------
     body layout
     ---------------------------------   */
@@ -22,6 +34,9 @@ body {
 }
 #main-header {
     grid-area: main-header;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 #main-body {
     grid-area: main-body;
@@ -33,46 +48,40 @@ body {
     body header
     ---------------------------------   */
 #main-header {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    border-radius: 0 0 1em 1em;
-    box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.5), 0 0.4em 0.8em rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;            /* default */
+    width: 100%;
     background-color: blue;
     color: white;
 }
-#main-header h1 {
-    text-align: center;
-    font-size: 1.3em;
+#main-header .title, #main-header .nav {
+    display: flex;
+    max-width: 100vw;
+    flex-direction: row;            /* default */
+    align-items: center;
+    flex-shrink: 0;
+    /* border: 2px solid salmon; */
 }
-@media (min-width: 20em) {
-    #main-header h1 {
-        font-size: 1.5em;
-    }
+#main-header .title {
+    margin: 0.4rem;
 }
-@media (min-width: 30em) {
-    #main-header h1 {
-        font-size: 1.8em;
-    }
+#menu-btn {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background: none;
 }
-@media (min-width: 40em) {
-    #main-header h1 {
-        font-size: 2em;
-    }
+#main-header .title h1 {
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
-#navbar {
-    display: block;
-    margin-left: 1em;
-    /* word-wrap: normal; */
+.nav {
+    margin-left: auto;
+    overflow-x: auto;
 }
-#navbar a {
-    display: inline-block;
-    font-size: 1.2em;
-    color: floralwhite;
-    text-decoration: none;
-    padding: 0 0.5em 0.5em 0.5em;
+.nav a {
+    padding: 0.5rem 1rem;
 }
 
 
@@ -141,13 +150,71 @@ body {
         /* grid-template-rows: repeat(auto-fit, minmax(auto, 25em)); */
     }
 }
+.project-tile {
+    text-align: center;
+    border-radius: 1em;
+    overflow: hidden;
+    background-color: #eee;
+}
+.tile-header h3 {
+    font-size: 1.5em;
+}
+.tile-footer{
+    font-size: 1.2em;
+}
 .tile-img {
-    width: 100%;
+    max-width: 100%;
     /* height: 100%; */
 }
-.project-tile:nth-child(even) {
-    background-color: #aaaaaa;
+
+
+/*  ------------------------------
+    main Footer
+    ------------------------------  */
+#main-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem 0;
+    color: #fff;
 }
-.project-tile:nth-child(odd) {
-    background-color: #cccccc;
+#main-footer { 
+    /* Background color */
+    background: rgb(0,0,150);
+    background: -moz-linear-gradient(55deg, rgba(0,0,150,1) 0%, rgba(0,0,100,1) 50%, rgba(0,0,150,1) 50%, rgba(0,0,50,1) 100%);
+    background: -webkit-linear-gradient(55deg, rgba(0,0,150,1) 0%, rgba(0,0,100,1) 50%, rgba(0,0,150,1) 50%, rgba(0,0,50,1) 100%);
+    background: linear-gradient(55deg, rgba(0,0,150,1) 0%, rgba(0,0,100,1) 50%, rgba(0,0,150,1) 50%, rgba(0,0,50,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000096",endColorstr="#000032",GradientType=1);
+}
+.copyright {
+    display: flex;              /*  to center heading  */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 5rem;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.copyright h4 {
+    font-weight: 500;
+}
+.share-btns-container, .contact-btns-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.share-btns-container a, .contact-btns-container a {
+    margin: 0.2rem;
+    height: 3rem;
+    width: 3rem;
+    flex-grow: 1;
+    text-align: center;
 }
