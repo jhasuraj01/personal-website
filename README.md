@@ -1,2 +1,2 @@
 # MY PERSONAL WEBSITE
-[VISIT](https://the-suraj.github.io/linear-equation-solver/)
+[VISIT](https://the-suraj.github.io/personal-website/)
